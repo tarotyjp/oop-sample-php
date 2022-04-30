@@ -122,8 +122,8 @@ echo "電話番号：" . $phone->getPhoneNumber() . PHP_EOL;
 こちらで紹介したソースは下記で動作を確認できます。  
 時間があれば模写してから実行してみましょう。
 
-- サンプルソース: [src/sample/lesson5](../sample/lesson5)
-- 保存先： [src/learning/lesson5](../learning/lesson5)
+- サンプルソース: [src/sample/lesson5](sample/lesson5)
+- 保存先： [src/learning/lesson5](learning/lesson5)
 
 実行方法は下記のとおりです。  
 ＊ `docker compose up -d` を実行していない場合は先に実行してください
@@ -240,8 +240,8 @@ echo "電話番号：" . $phone->getPhoneNumber() . PHP_EOL;
 こちらで紹介したソースは下記で動作を確認できます。  
 時間があれば模写してから実行してみましょう。
 
-- サンプルソース: [src/sample/lesson6](../sample/lesson6)
-- 保存先： [src/learning/lesson6](../learning/lesson6)
+- サンプルソース: [src/sample/lesson6](sample/lesson6)
+- 保存先： [src/learning/lesson6](learning/lesson6)
 
 実行はエラーが発生するパターンと正常に終了するパターンで分けておりそれぞれ下記のとおりです。  
 ＊ `docker compose up -d` を実行していない場合は先に実行してください

@@ -15,7 +15,7 @@
 
 イラストで表現するとこんな感じです。
 
-![継承をイラストで表現](./images/extends_003.png)
+![継承をイラストで表現](images/extends_003.png)
 
 これらの継承関係をクラス図という図法で表現すると下記のようになります。  
 今時点でクラス図の表記を覚える必要はありませんが、このような図法が存在することは知っておきましょう。
@@ -65,8 +65,8 @@ PHPにおけるオーバーライドの詳細はマニュアルをご参照く�
 継承とはどのように実装され、どのように利用されるものなのか、実際にソースで確認してみましょう。  
 サンプルソースを模写して実行し、動作を確認してください。
 
-- サンプルソース: [src/sample/lesson3](../sample/lesson3)
-- 保存先： [src/learning/lesson3](../learning/lesson3)
+- サンプルソース: [src/sample/lesson3](sample/lesson3)
+- 保存先： [src/learning/lesson3](learning/lesson3)
 
 実行方法は下記のとおりです。  
 ＊ `docker compose up -d` を実行していない場合は先に実行してください
@@ -175,8 +175,8 @@ classDiagram
 どのような動作をするのか、実際にソースで確認してみましょう。  
 サンプルソースを模写して実行し、動作を確認してください。
 
-- サンプルソース: [src/sample/lesson4](../sample/lesson4)
-- 保存先： [src/learning/lesson4](../learning/lesson4)
+- サンプルソース: [src/sample/lesson4](sample/lesson4)
+- 保存先： [src/learning/lesson4](learning/lesson4)
 
 実行方法は下記のとおりです。  
 ＊ `docker compose up -d` を実行していない場合は先に実行してください

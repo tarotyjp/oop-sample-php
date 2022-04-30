@@ -101,8 +101,8 @@ class NFCReader {
 
 下記ソースを模写して実行してください。
 
-- サンプルソース: [src/sample/lesson7](../sample/lesson7)
-- 保存先： [src/learning/lesson7](../learning/lesson7)
+- サンプルソース: [src/sample/lesson7](sample/lesson7)
+- 保存先： [src/learning/lesson7](learning/lesson7)
 
 実行方法は下記のとおりです。  
 ＊ `docker compose up -d` を実行していない場合は先に実行してください
@@ -183,7 +183,7 @@ PHP Fatal error:  Uncaught TypeError: Lesson2\Classes\SmartPhone::connectBluetoo
 また、PHPのプログラミングに特化した開発エディタを利用している場合、実装中にも下記のようにエラーの可能性を教えてくれています。  
 画像の22行目と30行目に注目してください。
 
-![コンパイルエラー](./images/ide_error_001.png)
+![コンパイルエラー](images/ide_error_001.png)
 
 キャプチャはPhpStormでの表示例ですが、30行目のメソッド呼び出しの引数がハイライトされているのが分かりますね。
 
