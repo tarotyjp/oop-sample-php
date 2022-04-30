@@ -1,0 +1,68 @@
+/vendor/
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Laravel 4 specific
+bootstrap/compiled.php
+app/storage/
+
+# Laravel 5 & Lumen specific
+public/storage
+public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+public_html/storage
+public_html/hot
+
+storage/*.key
+.env
+Homestead.yaml
+Homestead.json
+/.vagrant
+.phpunit.result.cache
+
+# User specific & automatically generated files #
+#################################################
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Tool specific files #
+#######################
+# vim
+*~
+*.swp
+*.swo
+# sublime text & textmate
+*.sublime-*
+*.stTheme.cache
+*.tmlanguage.cache
+*.tmPreferences.cache
+# Eclipse
+.settings/*
+.metadata/*
+RemoteSystemsTempFiles/*
+# JetBrains, aka PHPStorm, IntelliJ IDEA
+.idea
+_ide_helper.php
+.phpstorm.meta.php
+# NetBeans
+nbproject/*
+# Visual Studio Code
+.vscode/*
+src/sample/test/*
+
+# empty file #
+#######################
+!/.env
+!empty
+!launch.json
