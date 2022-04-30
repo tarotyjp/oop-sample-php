@@ -15,14 +15,24 @@ require_once dirname(__FILE__) . '/Classes/BluetoothSpeaker.php';
 require_once dirname(__FILE__) . '/Classes/WireSpeaker.php';
 require_once dirname(__FILE__) . '/Classes/SmartPhone.php';
 
-echo '---------' . PHP_EOL;
+echo <<<ECHO
 
-// SmartPhoneクラスのインスタンスを作成
+------------
+▼ SmartPhoneクラスのインスタンスを作成し内蔵スピーカーから音を出します。
+
+
+ECHO;
 $smartPhoneBlue = new SmartPhone('Blue');
 $smartPhoneBlue->playMusic();
 echo PHP_EOL;
 
-echo '---------' . PHP_EOL;
+echo <<<ECHO
+
+------------
+▼ BluetoothSpeakerをBluetoothで接続し、ブルートゥーススピーカーから音を出します。
+
+
+ECHO;
 
 // BluetoothSpeakerの接続
 $bluetoothSpeaker = new BluetoothSpeaker();
@@ -34,7 +44,14 @@ echo PHP_EOL;
 $smartPhoneBlue->playMusic();
 echo PHP_EOL;
 
-echo '---------' . PHP_EOL;
+
+echo <<<ECHO
+
+------------
+▼ WireSpeakerでBluetooth接続を試行します。
+WireSpeakerはBluetoothインターフェースをimplementsしていないのでエラーにあなります。
+
+ECHO;
 
 // WireSpeakerの接続
 $wireSpeaker = new WireSpeaker();

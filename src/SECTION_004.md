@@ -114,11 +114,16 @@ docker composer exec php php ./lesson7/lesson.php
 正しく模写されていれば、下記のように出力されます。
 
 ```text
----------
+------------
+▼ SmartPhoneクラスのインスタンスを作成し内蔵スピーカーから音を出します。
+
 スマートフォンがボディカラー[Blue]で生成されました
 BuiltinSpeaker(内蔵スピーカー）から音を出します
 
----------
+
+------------
+▼ BluetoothSpeakerをBluetoothで接続し、ブルートゥーススピーカーから音を出します。
+
 BluetoothSpeaker（ブルートゥーススピーカー）を接続します
 BluetoothSpeaker（ブルートゥーススピーカー）が接続されました
 BluetoothSpeaker（ブルートゥーススピーカー）から音を出します
@@ -129,23 +134,26 @@ BluetoothSpeaker（ブルートゥーススピーカー）が切断されまし�
 
 BuiltinSpeaker(内蔵スピーカー）から音を出します
 
----------
+
+------------
+▼ WireSpeakerでBluetooth接続を試行します。
+WireSpeakerはBluetoothインターフェースをimplementsしていないのでエラーにあなります。
 PHP Fatal error:  Uncaught TypeError: Lesson7\Classes\SmartPhone::connectBluetooth(): Argument #1 ($device) must be of type Lesson7\Interfaces\Bluetooth, Lesson7\Classes\WireSpeaker given, called in /var/www/sample/lesson7/l
-esson.php on line 41 and defined in /var/www/sample/lesson7/Classes/SmartPhone.php:70
+esson.php on line 58 and defined in /var/www/sample/lesson7/Classes/SmartPhone.php:75
 Stack trace:
-#0 /var/www/sample/lesson7/lesson.php(41): Lesson7\Classes\SmartPhone->connectBluetooth(Object(Lesson7\Classes\WireSpeaker))
+#0 /var/www/sample/lesson7/lesson.php(58): Lesson7\Classes\SmartPhone->connectBluetooth(Object(Lesson7\Classes\WireSpeaker))
 #1 {main}
-  thrown in /var/www/sample/lesson7/Classes/SmartPhone.php on line 70
+  thrown in /var/www/sample/lesson7/Classes/SmartPhone.php on line 75
 
 Fatal error: Uncaught TypeError: Lesson7\Classes\SmartPhone::connectBluetooth(): Argument #1 ($device) must be of type Lesson7\Interfaces\Bluetooth, Lesson7\Classes\WireSpeaker given, called in /var/www/sample/lesson7/lesson
-.php on line 41 and defined in /var/www/sample/lesson7/Classes/SmartPhone.php on line 70
+.php on line 58 and defined in /var/www/sample/lesson7/Classes/SmartPhone.php on line 75
 
-TypeError: Lesson7\Classes\SmartPhone::connectBluetooth(): Argument #1 ($device) must be of type Lesson7\Interfaces\Bluetooth, Lesson7\Classes\WireSpeaker given, called in /var/www/sample/lesson7/lesson.php on line 41 in /va
-r/www/sample/lesson7/Classes/SmartPhone.php on line 70
+TypeError: Lesson7\Classes\SmartPhone::connectBluetooth(): Argument #1 ($device) must be of type Lesson7\Interfaces\Bluetooth, Lesson7\Classes\WireSpeaker given, called in /var/www/sample/lesson7/lesson.php on line 58 in /va
+r/www/sample/lesson7/Classes/SmartPhone.php on line 75
 
 Call Stack:
-    0.0038     398808   1. {main}() /var/www/sample/lesson7/lesson.php:0
-    0.0644     418224   2. Lesson7\Classes\SmartPhone->connectBluetooth($device = class Lesson7\Classes\WireSpeaker { private string $name = 'WireSpeaker（有線スピーカー）' }) /var/www/sample/lesson7/lesson.php:41
+    0.0007     399504   1. {main}() /var/www/sample/lesson7/lesson.php:0
+    0.0198     420824   2. Lesson7\Classes\SmartPhone->connectBluetooth($device = class Lesson7\Classes\WireSpeaker { private string $name = 'WireSpeaker（有線スピーカー）' }) /var/www/sample/lesson7/lesson.php:58
 ```
 
 エラーが出力されていますね。
