@@ -137,7 +137,7 @@ BuiltinSpeaker(内蔵スピーカー）から音を出します
 
 ------------
 ▼ WireSpeakerでBluetooth接続を試行します。
-WireSpeakerはBluetoothインターフェースをimplementsしていないのでエラーにあなります。
+WireSpeakerはBluetoothインターフェースをimplementsしていないのでエラーになります。
 
 PHP Fatal error:  Uncaught TypeError: Lesson7\Classes\SmartPhone::connectBluetooth(): Argument #1 ($device) must be of type Lesson7\Interfaces\Bluetooth, Lesson7\Classes\WireSpeaker given, called in /var/www/sample/lesson7/l
 esson.php on line 58 and defined in /var/www/sample/lesson7/Classes/SmartPhone.php:75
