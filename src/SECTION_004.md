@@ -162,7 +162,7 @@ Call Stack:
 これは、 `WireSpeaker` クラスを `Bluetooth` で接続しようとしたために、エラーが発生しているのです。 少しエラーを詳しく見てみましょう。
 
 ```text
-PHP Fatal error:  Uncaught TypeError: Lesson2\Classes\SmartPhone::connectBluetooth(): Argument #1 ($device) must be of type Lesson2\Interfaces\Bluetooth, Lesson2\Classes\WireSpeaker given, called in /var/www/learning/lesson2/lesson.php on line 30 and defined in /var/www/learning/lesson2/Classes/SmartPhone.php:60
+PHP Fatal error:  Uncaught TypeError: Lesson7\Classes\SmartPhone::connectBluetooth(): Argument #1 ($device) must be of type Lesson7\Interfaces\Bluetooth, Lesson7\Classes\WireSpeaker given, called in /var/www/sample/lesson7/lesson.php on line 58 and defined in /var/www/sample/lesson7/Classes/SmartPhone.php:75
 ```
 
 長くてよくわかりませんね。  
@@ -172,10 +172,10 @@ PHP Fatal error:  Uncaught TypeError: Lesson2\Classes\SmartPhone::connectBluetoo
 ```text
 1. PHP Fatal error:  
 2. Uncaught TypeError: 
-3. Lesson2\Classes\SmartPhone::connectBluetooth(): 
-4. Argument #1 ($device) must be of type Lesson2\Interfaces\Bluetooth, Lesson2\Classes\WireSpeaker given, 
-5. called in /var/www/learning/lesson2/lesson.php on line 30 
-6. and defined in /var/www/learning/lesson2/Classes/SmartPhone.php:60
+3. Lesson7\Classes\SmartPhone::connectBluetooth(): 
+4. Argument #1 ($device) must be of type Lesson7\Interfaces\Bluetooth, Lesson7\Classes\WireSpeaker given, 
+5. called in /var/www/sample/lesson7/lesson.php on line 58 
+6. and defined in /var/www/sample/lesson7/Classes/SmartPhone.php:75
 ```
 
 エラーでは下記のような事を教えてくれています。
