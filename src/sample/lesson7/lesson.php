@@ -49,7 +49,8 @@ echo <<<ECHO
 
 ------------
 ▼ WireSpeakerでBluetooth接続を試行します。
-WireSpeakerはBluetoothインターフェースをimplementsしていないのでエラーにあなります。
+WireSpeakerはBluetoothインターフェースをimplementsしていないのでエラーになります。
+
 
 ECHO;
 
