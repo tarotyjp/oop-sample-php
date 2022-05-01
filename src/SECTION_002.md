@@ -20,31 +20,7 @@
 これらの継承関係をクラス図という図法で表現すると下記のようになります。  
 今時点でクラス図の表記を覚える必要はありませんが、このような図法が存在することは知っておきましょう。
 
-```mermaid
-classDiagram
-  class Phone {
-    -str phoneNumber
-    +string getPhoneNumber()
-    +void call(str phoneNumber)
-  }
-
-  class PortablePhone {
-    +void useInternet(string url)
-    +void useCamera()
-  }
-
-  class SmartPhone {
-    -app[] apps
-    +void useInternet(string url)
-    +void installApp(string $appCode)
-    +void useApp(string $appCode)
-    +void uninstallApp(string $appCode)
-    +app[] getInstalledApps()
-  }
-
-  Phone <|-- PortablePhone : extends
-  PortablePhone <|-- SmartPhone : extends
-```
+![継承をイラストで表現](images/diagram_class_008.png)
 
 継承関係にあるクラスの事をOOPでは下記のように呼びます。
 
@@ -150,27 +126,9 @@ OOPの重要な思考に「抽象化」というものがあります。
 
 参考までに前述のクラス図という図法で表現してみますが、表現方法について今時点覚える必要はありません。
 
-```mermaid
-classDiagram
-  class SmartPhone {
-    <<abstract>>
-    +string getOs()
-    +void call(str phoneNumber)
-  }
+![継承をイラストで表現](images/diagram_class_009.png)
 
-  class Android {
-    +string getOs()
-  }
-
-  class iPhone {
-    +string getOs()
-  }
-
-  SmartPhone <|-- Android : extends
-  SmartPhone <|-- iPhone : extends
-```
-
-ここで重要なのは、抽象化されたクラス「SmartPhone」は直接インスタンスを作成することは出来ないという事です。
+ここで重要なのは、抽象化クラス「SmartPhone」は直接インスタンスを作成することは出来ないという事です。
 
 どのような動作をするのか、実際にソースで確認してみましょう。  
 サンプルソースを模写して実行し、動作を確認してください。
