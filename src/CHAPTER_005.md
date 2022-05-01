@@ -68,8 +68,8 @@ $nickName =& $name;
 どのような動作をするのか、実際にソースで確認してみましょう。  
 まずは値渡しのサンプルソースを模写して実行し、動作を確認してください。
 
-- サンプルソース: [src/sample/lesson8](sample/lesson8/lesson1.php)
-- 保存先： [src/learning/lesson8](learning/lesson8/lesson1.php)
+- サンプルソース: [src/sample/lesson8/lesson1.php](sample/lesson8/lesson1.php)
+- 保存先： [src/learning/lesson8/lesson1.php](learning/lesson8/lesson1.php)
 
 実行方法は下記のとおりです。  
 ＊ `docker compose up -d` を実行していない場合は先に実行してください
@@ -97,8 +97,8 @@ $nickName: さぶろう
 
 続いて参照渡しのサンプルソースを模写して実行し、動作を確認してください。
 
-- サンプルソース: [src/sample/lesson8](sample/lesson8/lesson2.php)
-- 保存先： [src/learning/lesson8](learning/lesson8/lesson2.php)
+- サンプルソース: [src/sample/lesson8/lesson2.php](sample/lesson8/lesson2.php)
+- 保存先： [src/learning/lesson8/lesson2.php](learning/lesson8/lesson2.php)
 
 実行方法は下記のとおりです。  
 ＊ `docker compose up -d` を実行していない場合は先に実行してください
@@ -131,8 +131,8 @@ $nickName: さぶろう
 下記は関数による参照渡しの定義例です。  
 サンプルソースを模写して実行し、動作を確認してください。
 
-- サンプルソース: [src/sample/lesson8](sample/lesson8/lesson3.php)
-- 保存先： [src/learning/lesson8](learning/lesson8/lesson3.php)
+- サンプルソース: [src/sample/lesson8/lesson3.php](sample/lesson8/lesson3.php)
+- 保存先： [src/learning/lesson8/lesson3.php](learning/lesson8/lesson3.php)
 
 実行方法は下記のとおりです。  
 ＊ `docker compose up -d` を実行していない場合は先に実行してください
@@ -174,8 +174,8 @@ $nickName: サブロウ
 
 OOPによる参照渡しの注意を体験するため、下記サンプルソースを模写して実行し動作を確認してください。
 
-- サンプルソース: [src/sample/lesson8](sample/lesson8/lesson4.php)
-- 保存先： [src/learning/lesson8](learning/lesson8/lesson4.php)
+- サンプルソース: [src/sample/lesson8/lesson4.php](sample/lesson8/lesson4.php)
+- 保存先： [src/learning/lesson8/lesson4.php](learning/lesson8/lesson4.php)
 
 実行方法は下記のとおりです。  
 ＊ `docker compose up -d` を実行していない場合は先に実行してください
