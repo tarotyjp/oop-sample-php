@@ -14,12 +14,6 @@ class SmartPhone
     private Sim $sim;
 
     /**
-     * プロパティ：電話番号
-     * @var string
-     */
-    private string $phoneNumber;
-
-    /**
      * コンストラクタ
      * インスタンスを作成するためにはSIMのインスタンスが必要
      *
@@ -27,7 +21,7 @@ class SmartPhone
      */
     public function __construct(Sim $sim)
     {
-        $this->changeSim($sim);
+        $this->setSim($sim);
     }
 
     /**
@@ -36,10 +30,9 @@ class SmartPhone
      * @param Sim $sim
      * @return void
      */
-    public function changeSim(Sim $sim): void
+    public function setSim(Sim $sim): void
     {
         $this->sim = $sim;
-        $this->phoneNumber = $sim->getPhoneNumber();
     }
 
     /**
@@ -48,6 +41,6 @@ class SmartPhone
      */
     public function getPhoneNumber(): string
     {
-        return $this->phoneNumber;
+        return $this->sim->getPhoneNumber();
     }
 }

@@ -26,7 +26,7 @@ class Sim
      * プロパティ：電話番号
      * @var string
      */
-    private string $phoneNumber;
+    public string $phoneNumber;
 
     /**
      * コンストラクタ
@@ -58,13 +58,7 @@ class SmartPhone
      * プロパティ：Simクラスのインスタンス
      * @var Sim
      */
-    private Sim $sim;
-
-    /**
-     * プロパティ：電話番号
-     * @var string
-     */
-    public string $phoneNumber;
+    public Sim $sim;
 
     /**
      * コンストラクタ
@@ -74,7 +68,7 @@ class SmartPhone
      */
     public function __construct(Sim $sim)
     {
-        $this->changeSim($sim);
+        $this->setSim($sim);
     }
 
     /**
@@ -83,10 +77,9 @@ class SmartPhone
      * @param Sim $sim
      * @return void
      */
-    public function changeSim(Sim $sim): void
+    public function setSim(Sim $sim): void
     {
         $this->sim = $sim;
-        $this->phoneNumber = $sim->getPhoneNumber();
     }
 
     /**
@@ -95,7 +88,7 @@ class SmartPhone
      */
     public function getPhoneNumber(): string
     {
-        return $this->phoneNumber;
+        return $this->sim->getPhoneNumber();
     }
 }
 ```
@@ -105,18 +98,22 @@ class SmartPhone
 
 ```PHP
 <?php
+echo '>>>> SIM / SmartPhone のインスタンスを作成して電話番号を取得します' . PHP_EOL;
 $sim = new Sim('090-0000-0000');
 $phone = new SmartPhone($sim);
 // 「電話番号：090-0000-0000」と出力
 echo "電話番号：" . $phone->getPhoneNumber() . PHP_EOL;
 
-// インスタンスプロパティを容易に変更できてしまう
-$phone->phoneNumber = '090-0000-1111';
+echo PHP_EOL;
+
+echo '>>>> 電話番号を直接変更します' . PHP_EOL;
+// プロパティを容易に変更できてしまう
+$phone->sim->phoneNumber = '090-0000-1111';
 // 「電話番号：090-0000-1111」と出力
 echo "電話番号：" . $phone->getPhoneNumber() . PHP_EOL;
 ```
 
-ソース中にコメントもしていますが、先ほどのクラス定義ではインスタンス作成後の電話番号を外部から容易に変更できてしまいます。  
+ソース中にコメントもしていますが、先ほどのクラス定義ではインスタンス作成後の電話番号を外部から容易に変更出来てしまっています。  
 これでは、ちょっとした実装ミスで大きなトラブルになりかねません。
 
 こちらで紹介したソースは下記で動作を確認できます。  
@@ -135,7 +132,10 @@ docker composer exec php php ./lesson5/lesson.php
 正しく模写されていれば下記のように出力されます。
 
 ```text
+>>>> SIM / SmartPhone のインスタンスを作成して電話番号を取得します
 電話番号：090-0000-0000
+
+>>>> 電話番号を直接変更します
 電話番号：090-0000-1111
 ```
 
@@ -143,12 +143,25 @@ docker composer exec php php ./lesson5/lesson.php
 
 「悪い実装」で発生するようなトラブルを未然に防ぐために、OOPには「アクセス権」と呼ばれる修飾子を設定することができます。
 
-では、先ほどのSmartPhoneクラスを適切な形に実装し直してみましょう
+では、先ほどのSmartPhoneクラスを適切な形に実装し直してみましょう。  
+＊修正箇所周辺のみ記述しています。
 
 ```PHP
 <?php
 
-namespace Lesson6\Classes;
+/**
+ * SIMを表現するクラス
+ */
+class Sim
+{
+    /**
+     * プロパティ：電話番号
+     * @var string
+     */
+    private string $phoneNumber;
+    
+    // 以下略
+}
 
 /**
  * スマートフォンを表現するクラス
@@ -161,59 +174,33 @@ class SmartPhone
      */
     private Sim $sim;
 
-    /**
-     * プロパティ：電話番号
-     * @var string
-     */
-    private string $phoneNumber;
-
-    /**
-     * コンストラクタ
-     * インスタンスを作成するためにはSIMのインスタンスが必要
-     *
-     * @param Sim $sim
-     */
-    public function __construct(Sim $sim)
-    {
-        $this->changeSim($sim);
-    }
-
-    /**
-     * SIMを変更するためのメソッド
-     *
-     * @param Sim $sim
-     * @return void
-     */
-    public function changeSim(Sim $sim): void
-    {
-        $this->sim = $sim;
-        $this->phoneNumber = $sim->getPhoneNumber();
-    }
-
-    /**
-     * 電話番号を返却します。
-     * @return string
-     */
-    public function getPhoneNumber(): string
-    {
-        return $this->phoneNumber;
-    }
+    // 以下略
 }
 ```
 
-変更箇所は１か所のみで、インスタンスプロパティ `$phoneNumber` の行頭にあった `public` を `private` に変更しました。
+変更箇所は2か所のみで下記のとおりです。
+
+| クラス        | 変更点                                                   |
+|------------|-------------------------------------------------------|
+| Sim        | プロパティ `$phoneNumber` の行頭にあった `public` を `private` に変更 |
+| SmartPhone | プロパティ `$sim` の行頭にあった `public` を `private` に変更         |
 
 修正した `SmartPhone` を先ほどの利用例を使って実行してみます。
 
 ```PHP
 <?php
+
+echo '>>>> SIM / SmartPhone のインスタンスを作成して電話番号を取得します' . PHP_EOL;
 $sim = new Sim('090-0000-0000');
 $phone = new SmartPhone($sim);
 // 「電話番号：090-0000-0000」と出力
 echo "電話番号：" . $phone->getPhoneNumber() . PHP_EOL;
 
+echo PHP_EOL;
+
+echo '>>>> 電話番号を直接変更します' . PHP_EOL;
 // 外部に公開されていないため、直接変更することができずエラーとなる
-$phone->phoneNumber = '090-0000-1111';
+$phone->sim->phoneNumber = '090-0000-1111';
 // エラーのため下記ステートメントには到達出来ません
 echo "電話番号：" . $phone->getPhoneNumber() . PHP_EOL;
 ```
@@ -225,14 +212,18 @@ echo "電話番号：" . $phone->getPhoneNumber() . PHP_EOL;
 
 ```PHP
 <?php
+echo '>>>> SIM / SmartPhone のインスタンスを作成して電話番号を取得します' . PHP_EOL;
 $firstSim = new Sim('090-0000-0000');
 $phone = new SmartPhone($firstSim);
 // 「電話番号：090-0000-0000」と出力
 echo "電話番号：" . $phone->getPhoneNumber() . PHP_EOL;
 
+echo PHP_EOL;
+
+echo '>>>> SIMの変更により電話番号を直接変更します' . PHP_EOL;
 // SIMを差し替えることで電話番号も変更されます
 $secondSim = new Sim('090-0000-1111');
-$phone->changeSim($secondSim);
+$phone->setSim($secondSim);
 // 「電話番号：090-0000-1111」と出力
 echo "電話番号：" . $phone->getPhoneNumber() . PHP_EOL;
 ```
@@ -257,18 +248,21 @@ docker composer exec php php ./lesson6/lesson1.php
 正しく模写されていれば下記のように出力されます。
 
 ```text
+>>>> SIM / SmartPhone のインスタンスを作成して電話番号を取得します
 電話番号：090-0000-0000
-PHP Fatal error:  Uncaught Error: Cannot access private property Lesson6\Classes\SmartPhone::$phoneNumber in /var/www/sample/lesson6/lesson1.php:18
+
+>>>> 電話番号を直接変更します
+PHP Fatal error:  Uncaught Error: Cannot access private property Lesson6\Classes\SmartPhone::$sim in /var/www/sample/lesson6/lesson1.php:22
 Stack trace:
 #0 {main}
-  thrown in /var/www/sample/lesson6/lesson1.php on line 18
+  thrown in /var/www/sample/lesson6/lesson1.php on line 22
 
-Fatal error: Uncaught Error: Cannot access private property Lesson6\Classes\SmartPhone::$phoneNumber in /var/www/sample/lesson6/lesson1.php on line 18
+Fatal error: Uncaught Error: Cannot access private property Lesson6\Classes\SmartPhone::$sim in /var/www/sample/lesson6/lesson1.php on line 22
 
-Error: Cannot access private property Lesson6\Classes\SmartPhone::$phoneNumber in /var/www/sample/lesson6/lesson1.php on line 18
+Error: Cannot access private property Lesson6\Classes\SmartPhone::$sim in /var/www/sample/lesson6/lesson1.php on line 22
 
 Call Stack:
-    0.0026     391616   1. {main}() /var/www/sample/lesson6/lesson1.php:0
+    0.0023     392512   1. {main}() /var/www/sample/lesson6/lesson1.php:0
 ```
 
 SIMの変更により正常に電話番号の変更が実行できるパターン
@@ -280,7 +274,10 @@ docker composer exec php php ./lesson6/lesson2.php
 正しく模写されていれば下記のように出力されます。
 
 ```text
+>>>> SIM / SmartPhone のインスタンスを作成して電話番号を取得します
 電話番号：090-0000-0000
+
+>>>> SIMの変更により電話番号を直接変更します
 電話番号：090-0000-1111
 ```
 
@@ -323,6 +320,5 @@ setter を総称して「accessor（アクセサ）」と呼びます。
     - 例）`public function getPhoneNumber()`
 - setter: メソッド名がsetから始まる
     - 例）`public function setSim(Sim $sim)`
-    - ＊今回のサンプルでは `changeSim()` として実装しており厳密にはsetterではありません
 
 ＊言語によっては GetXxx() / SetXxxの() ように大文字始まりが推奨されることもあります。

@@ -9,12 +9,16 @@ use Lesson6\Classes\SmartPhone;
 require_once dirname(__FILE__) . '/Classes/Sim.php';
 require_once dirname(__FILE__) . '/Classes/SmartPhone.php';
 
+echo '>>>> SIM / SmartPhone のインスタンスを作成して電話番号を取得します' . PHP_EOL;
 $sim = new Sim('090-0000-0000');
 $phone = new SmartPhone($sim);
 // 「電話番号：090-0000-0000」と出力
 echo "電話番号：" . $phone->getPhoneNumber() . PHP_EOL;
 
-// 外部に公開されていないため、直接変更することができずエラーとなる
-$phone->phoneNumber = '090-0000-1111';
-// エラーのため下記ステートメントには到達出来ません
+echo PHP_EOL;
+
+echo '>>>> 電話番号を直接変更します' . PHP_EOL;
+// プロパティを容易に変更できてしまう
+$phone->sim->phoneNumber = '090-0000-1111';
+// 「電話番号：090-0000-1111」と出力
 echo "電話番号：" . $phone->getPhoneNumber() . PHP_EOL;

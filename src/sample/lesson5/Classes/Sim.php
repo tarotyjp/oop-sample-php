@@ -11,7 +11,7 @@ class Sim
      * プロパティ：電話番号
      * @var string
      */
-    private string $phoneNumber;
+    public string $phoneNumber;
 
     /**
      * コンストラクタ
